@@ -4,3 +4,6 @@ __pycache__/
 .vscode/
 ~$*
 *.tmp
+*.exe
+*.msi
+*.zip
