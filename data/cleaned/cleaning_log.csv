@@ -1,0 +1,16 @@
+table,issue,action,reason,values_affected
+matches,Duplicate rows,Checked and removed,Duplicates would double-count wins,0
+deliveries,Duplicate rows,Checked and removed,Duplicates would double-count runs,0
+both,Inconsistent team names (renamed franchises),Mapped old names to current names,Same franchise must be counted as one team,143564
+matches,Duplicate venue names (58 names),Merged into 36 stadiums,Wins at one stadium were split across several names,481
+matches,"City spelling (Bangalore/Bengaluru, Chandigarh/Mohali)",Standardised,Same city under two names,126
+matches,Missing city,"Filled from venue (Dubai, Sharjah)",Venue name uniquely identifies the city,51
+matches,"Mixed season format (2007/08, 2009/10, 2020/21 vs plain years)",Season = year of match date,One consistent numeric season for grouping,178
+matches,Missing winner / player_of_match,Filled with 'No Result' / 'No Award',Match was abandoned - null is real information,5
+matches,Missing method,Filled with 'Normal',Empty means no D/L adjustment,1074
+matches,Missing result_margin (19) and target_runs (3),Left as null,Ties and no-result matches have no margin; filling with 0 would distort averages,22
+deliveries,Missing extras_type,Filled with 'none',Empty means a normal delivery,246795
+deliveries,"Missing player_dismissed, dismissal_kind, fielder",Left as null,Null means no wicket on that ball (the raw file wrote this as text 'NA'),247970
+deliveries,"No columns for legal balls, balls faced, bowler runs, bowler wickets","Created is_super_over, is_legal_ball, ball_faced, bowler_runs, bowler_wicket","Needed for correct strike rate, economy and wicket counts",260920
+both,Outliers (very high targets / big margins),"Checked, kept","Genuine cricket results, e.g. 287-run total and 146-run win",0
+new tables,No teams or players table in source,Created teams and players,Needed for 3-4 table SQL joins,747
